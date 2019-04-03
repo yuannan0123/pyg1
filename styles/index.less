@@ -27,8 +27,57 @@
 
 }
 .pyg_content{
-  width: 100%;
+  overflow: scroll;
   flex: 1;
+}
+.productList{
+  .product{
+    float: left;
+  }
+ .product{
+   padding: 0 8px;
+   margin-top: 8px;
+  
+   >img{
+     width: 100%;
+     display: block;
+     margin-bottom: 8px;
+   }
+   .productImg{
+     width: 49%;
+     float: left;
+      margin-bottom: 8px;
+     
+     
+     >a{
+       width: 50%;
+       >div{
+         font-size: 13px;
+         color:#333;
+       }
+       .price{
+         color:red;
+         font-size: 18px;
+         margin: 4px 0;
+       }
+       img{
+         width: 100%;
+       }
+     }
+     >img{
+       width: 50%;
+     }
+     a:nth-of-type(2){
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+      
+     }
+   }
+   .productImg:nth-of-type(even){
+     margin-left: 2%;
+   }
+ }
 }
 .pyg_footer{
   width: 100%;

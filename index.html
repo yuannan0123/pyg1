@@ -20,40 +20,56 @@
                 <input type="search" class="mui-input-clear" placeholder="">
             </div>
         </div>
-        <!-- 轮播图 -->
-        <div class="pyg_banner">
-            <div class="mui-slider">
-                <!-- 轮播图容器 -->
-                <div class="mui-slider-group mui-slider-loop pyg_indexbanner">
+       
 
-                </div>
-                <!-- 小圆点容器 -->
-                <div class="mui-slider-indicator">
-                    
+        <div class="pyg_content">
+            <!-- 轮播图 -->
+            <div class="pyg_banner">
+                <div class="mui-slider">
+                    <!-- 轮播图容器 -->
+                    <div class="mui-slider-group mui-slider-loop pyg_indexbanner">
+            
+                    </div>
+                    <!-- 小圆点容器 -->
+                    <div class="mui-slider-indicator">
+            
+                    </div>
                 </div>
             </div>
+            <!-- 导航 -->
+            <div class="pyg_nav">
+                <a href="javascript:;">
+                    <img src="https://image1.suning.cn/uimg/cms/img/155411189774023862.gif?format=_is_120w_120h">
+                    <div>爆款手机</div>
+                </a>
+                <a href="javascript:;">
+                    <img src="https://image1.suning.cn/uimg/cms/img/154708800857670247.png?format=_is_120w_120h.webp">
+                    <div>爆款手机</div>
+                </a>
+                <a href="javascript:;">
+                    <img src="https://image2.suning.cn/uimg/cms/img/155175138228120594.png?format=_is_120w_120h.webp">
+                    <div>爆款手机</div>
+                </a>
+                <a href="javascript:;">
+                    <img src="https://image3.suning.cn/uimg/cms/img/154708804944582613.png?format=_is_120w_120h.webp">
+                    <div>爆款手机</div>
+                </a>
+            </div>
+            <!-- 产品列表 -->
+            <div class="productList">
+                <!-- <div class="product">
+                    <img src="http://image4.suning.cn/uimg/cms/img/149559219946350066.png" alt="">
+                    <div class="productImg">
+                        <a href="#">
+                            <img src="http://image3.suning.cn/uimg/b2c/newcatentries/0000000000-000000000104245151_1_400x400.jpg" alt="">
+                            <div class="mui-ellipsis-2">利仁（Liven）料理机 LL-A 快速出料 安全材质 多功能辅食料理机 菜馅机 304不锈钢刀头</div>
+                            <div class="price">￥ 200</div>
+                        </a>
+                        <a href="#" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">找相似</a>
+                    </div>                                                   
+                </div>                                -->
+            </div>
         </div>
-        <!-- 导航 -->
-        <div class="pyg_nav">
-            <a href="javascript:;">
-                <img src="https://image1.suning.cn/uimg/cms/img/155411189774023862.gif?format=_is_120w_120h">
-                <div>爆款手机</div>
-            </a>
-            <a href="javascript:;">
-                <img src="https://image1.suning.cn/uimg/cms/img/154708800857670247.png?format=_is_120w_120h.webp">
-                <div>爆款手机</div>
-            </a>
-            <a href="javascript:;">
-                <img src="https://image2.suning.cn/uimg/cms/img/155175138228120594.png?format=_is_120w_120h.webp">
-                <div>爆款手机</div>
-            </a>
-            <a href="javascript:;">
-                <img src="https://image3.suning.cn/uimg/cms/img/154708804944582613.png?format=_is_120w_120h.webp">
-                <div>爆款手机</div>
-            </a>
-        </div>
-
-        <div class="pyg_content"></div>
         <div class="pyg_footer">
             <nav class="mui-bar mui-bar-tab">
                 <a class="mui-tab-item mui-active" href="#tabbar">
@@ -91,10 +107,31 @@
         <div class="mui-indicator {{index==0?'mui-active':''}}"></div>
         {{/each}}
     </script>
+
+    <!-- 产品列表 -->
+    <script type="text/template" id="productListTemp">
+        {{each data as value index}}
+        <div class="product">
+            <img src="{{value.group_img}}" alt="">
+            {{each value.goods value1 index1}}
+            <div class="productImg">
+                <a href="#">
+                    <img src="{{value1.goods_small_logo}}"
+                        alt="">
+                    <div class="mui-ellipsis-2">{{value1.goods_name}}</div>
+                    <div class="price">￥{{value1.goods_price}}</div>
+                </a>
+                <a href="#" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">找相似</a>
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </script>
 </body>
 
 </html>
 <script src="./lib/mui/js/mui.js"></script>
 <script src="./lib/zepto/zepto.js"></script>
 <script src="./lib/arttemplate/template-web.js"></script>
+<script src="./js/common.js"></script>
 <script src="./js/index.js"></script>
