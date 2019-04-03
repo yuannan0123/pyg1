@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./lib/mui/css/mui.css">
     <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
-    <link rel="stylesheet" href="./styles/index.css">   
+    <link rel="stylesheet" href="./styles/index.css">
     <title>29-品优购</title>
 </head>
+
 <body>
     <div class="layout">
         <div class="pyg_header">
@@ -19,15 +21,13 @@
         </div>
         <div class="pyg_nav">
             <div class="mui-slider">
-                <div class="mui-slider-group mui-slider-loop">
-                    <!--支持循环，需要重复图片节点-->
-                    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./static/images/lbxx.jpg" /></a></div>
-                    <div class="mui-slider-item"><a href="#"><img src="./static/images/lbxx.jpg" /></a></div>
-                    <div class="mui-slider-item"><a href="#"><img src="./static/images/lbxx.jpg" /></a></div>
-                    <div class="mui-slider-item"><a href="#"><img src="./static/images/lbxx.jpg" /></a></div>
-                    <div class="mui-slider-item"><a href="#"><img src="./static/images/lbxx.jpg" /></a></div>
-                    <!--支持循环，需要重复图片节点-->
-                    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./static/images/lbxx.jpg" /></a></div>
+                <!-- 轮播图容器 -->
+                <div class="mui-slider-group mui-slider-loop pyg_indexbanner">
+
+                </div>
+                <!-- 小圆点容器 -->
+                <div class="mui-slider-indicator">
+                    
                 </div>
             </div>
         </div>
@@ -53,6 +53,26 @@
             </nav>
         </div>
     </div>
+    <!-- 轮播图 -->
+    <script type="text/template" id="pyg_bannerTemp">
+        <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[data.length-1].navigator_url}}"><img src="{{data[data.length-1].image_src}}" /></a>
+       </div>
+       {{each data as value index}}
+       <div class="mui-slider-item"><a href="{{value.navigator_url}}"><img src="{{value.image_src}}" /></a></div>
+       {{/each}}
+       <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[0].navigator_url}}"><img src="{{data[0].image_src}}" /></a>
+       </div>
+    </script>
+    <!-- 小圆点 -->
+    <script type="text/template" id="indicatorTemp">
+        {{each data as value index}}
+        <div class="mui-indicator {{index==0?'mui-active':''}}"></div>
+        {{/each}}
+    </script>
 </body>
+
 </html>
 <script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.js"></script>
+<script src="./lib/arttemplate/template-web.js"></script>
+<script src="./js/index.js"></script>
